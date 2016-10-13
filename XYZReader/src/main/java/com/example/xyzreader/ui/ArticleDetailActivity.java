@@ -1,10 +1,13 @@
 package com.example.xyzreader.ui;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.LoaderManager;
 import android.content.Loader;
 import android.database.Cursor;
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -176,5 +179,14 @@ public class ArticleDetailActivity extends ActionBarActivity
         public int getCount() {
             return (mCursor != null) ? mCursor.getCount() : 0;
         }
+    }
+
+    @Override
+    public void onEnterAnimationComplete() {
+        super.onEnterAnimationComplete();
+        final int startScrollPos = getResources().getDimensionPixelSize(R.dimen.init_scroll_up_distance);
+        Animator animator = ObjectAnimator.ofInt(findViewById(R.id.scrollview),"scrollY",
+                startScrollPos).setDuration(700);
+        animator.start();
     }
 }
