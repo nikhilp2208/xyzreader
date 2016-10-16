@@ -9,5 +9,8 @@
     <dimen name="fab_press_translation_z">12dp</dimen>
     <dimen name="fab_margin">24dp</dimen>
     <dimen name="init_scroll_up_distance">50dp</dimen>
+    <dimen name="cardview_margin">4dp</dimen>
+    <dimen name="cardview_padding">16dp</dimen>
+    <dimen name="recycler_view_padding">4dp</dimen>
 
 </resources>

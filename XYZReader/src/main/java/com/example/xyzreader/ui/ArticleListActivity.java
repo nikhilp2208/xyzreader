@@ -15,8 +15,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.text.format.DateUtils;
-import android.util.TypedValue;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -137,9 +135,10 @@ public class ArticleListActivity extends ActionBarActivity implements
                             ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition())));
                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
                         Bundle bundle = null;
+                        View sharedView = view.findViewById(R.id.thumbnail);
                         bundle = ActivityOptions.makeSceneTransitionAnimation(ArticleListActivity.this,
-                                view.findViewById(R.id.thumbnail),
-                                getString(R.string.transition_photo))
+                                sharedView,
+                                sharedView.getTransitionName())
                                 .toBundle();
                         startActivity(intent,bundle);
                     } else {

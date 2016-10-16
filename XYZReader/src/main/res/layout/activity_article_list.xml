@@ -24,27 +24,36 @@
                 android:layout_width="wrap_content"
                 android:layout_height="?actionBarSize"
                 android:src="@drawable/logo"
+                android:padding="8dp"
                 android:contentDescription="@string/app_name" />
 
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_refresh_layout"
+    <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view"
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:scrollbarStyle="outsideOverlay"
-            android:paddingTop="64dp"
-            android:paddingLeft="@dimen/list_side_margin"
-            android:paddingRight="@dimen/list_side_margin"
-            android:paddingBottom="28dp" />
-    </android.support.v4.widget.SwipeRefreshLayout>
+            android:layout_gravity="center_horizontal">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:scrollbarStyle="outsideOverlay"
+                android:paddingTop="@dimen/recycler_view_padding"
+                android:paddingLeft="@dimen/recycler_view_padding"
+                android:paddingRight="@dimen/recycler_view_padding"
+                android:paddingBottom="@dimen/recycler_view_padding" />
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>
