@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -133,17 +134,18 @@ public class ArticleListActivity extends ActionBarActivity implements
                 public void onClick(View view) {
                     Intent intent = new Intent(Intent.ACTION_VIEW,
                             ItemsContract.Items.buildItemUri(getItemId(vh.getAdapterPosition())));
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                        Bundle bundle = null;
-                        View sharedView = view.findViewById(R.id.thumbnail);
-                        bundle = ActivityOptions.makeSceneTransitionAnimation(ArticleListActivity.this,
-                                sharedView,
-                                sharedView.getTransitionName())
-                                .toBundle();
-                        startActivity(intent,bundle);
-                    } else {
+//                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+//                        Bundle bundle = null;
+//                        View sharedView = view.findViewById(R.id.thumbnail);
+//                        sharedView.setTransitionName(getString(R.string.transition_photo));
+//                        bundle = ActivityOptions.makeSceneTransitionAnimation(ArticleListActivity.this,
+//                                sharedView,
+//                                sharedView.getTransitionName())
+//                                .toBundle();
+//                        startActivity(intent,bundle);
+//                    } else {
                         startActivity(intent);
-                    }
+//                    }
                 }
             });
             return vh;
