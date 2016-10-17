@@ -159,6 +159,7 @@ public class ArticleDetailFragment extends Fragment implements
         }
 
         TextView bylineView = (TextView) mRootView.findViewById(R.id.article_byline);
+        TextView titleView = (TextView) mRootView.findViewById(R.id.article_title);
         Toolbar detailToolbar = (Toolbar) mRootView.findViewById(R.id.detail_toolbar);
 
         bylineView.setMovementMethod(new LinkMovementMethod());
@@ -170,6 +171,7 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
             String titleString = mCursor.getString(ArticleLoader.Query.TITLE);
+            titleView.setText(titleString);
             if(detailToolbar != null) {
                 detailToolbar.setTitle(titleString);
                 detailToolbar.setNavigationOnClickListener(new View.OnClickListener() {

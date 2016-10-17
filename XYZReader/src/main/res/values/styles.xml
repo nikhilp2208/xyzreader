@@ -32,8 +32,7 @@
     </style>
 
     <style name="ExpandedTitleTextAppearance" parent="@android:style/TextAppearance.Large">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/detail_title_text_size</item>
+        <item name="android:textColor">@android:color/transparent</item>
     </style>
 
     <style name="CollapsedTitleTextAppearance" parent="@android:style/TextAppearance.Large">

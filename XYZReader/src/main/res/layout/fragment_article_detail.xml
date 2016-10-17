@@ -50,7 +50,7 @@
                     android:id="@+id/meta_bar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#333"
+                    android:background="@color/metabar_background"
                     android:layout_gravity="bottom"
                     android:orientation="vertical"
                     android:paddingLeft="@dimen/expandedTitleMargin"
@@ -58,18 +58,21 @@
                     android:paddingTop="@dimen/detail_metabar_vert_padding"
                     android:paddingBottom="@dimen/detail_metabar_vert_padding">
 
-                    <View
+                    <TextView
+                        android:id="@+id/article_title"
+                        style="?android:attr/textAppearanceLarge"
                         android:layout_width="match_parent"
-                        android:layout_height="32dp"
-                        android:visibility="invisible">
-                    </View>
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
+                        android:textSize="@dimen/detail_title_text_size">
+                    </TextView>
 
                     <TextView
                         android:id="@+id/article_byline"
                         style="?android:attr/textAppearanceSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="#8fff" />
+                        android:textColor="@color/metabar_non_primary_text" />
                 </LinearLayout>
 
             </FrameLayout>
@@ -80,7 +83,7 @@
                 android:layout_height="?actionBarSize"
                 android:theme="@style/AppTheme.AppBarOverlay"
                 app:navigationIcon="@drawable/ic_arrow_back"
-                app:contentInsetStart="56dp"
+                app:contentInsetStart="@dimen/detail_toolbar_content_inset_start"
                 app:layout_collapseMode="pin" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -100,7 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:maxWidth="@dimen/detail_card_max_width"
-            android:background="#fff"
+            android:background="@color/max_width_ll_background"
             android:elevation="2dp">
 
             <TextView
@@ -120,16 +123,16 @@
 
     </android.support.v4.widget.NestedScrollView>
 
-    <ImageButton android:id="@+id/share_fab"
-        android:stateListAnimator="@anim/fab_state_list_anim"
+    <android.support.design.widget.FloatingActionButton android:id="@+id/share_fab"
         android:background="@drawable/add_fab_background"
         android:layout_gravity="bottom|end"
         android:layout_marginRight="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/ic_share"
         android:elevation="@dimen/fab_elevation"
-        android:contentDescription="@string/action_share" />
+        android:contentDescription="@string/action_share"
+        app:pressedTranslationZ="@dimen/fab_press_translation_z" />
 
 </android.support.design.widget.CoordinatorLayout>
